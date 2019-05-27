@@ -21,4 +21,4 @@ All of the above is just an example of how a simple adapter can be achieved. Usi
 Enter the C:\ command prompt and then `>>> pip install pandas` may be required if Python doesn't have the requisite modules.
 
 ---
-![alt text](assets\workflow.png)
+![alt text](assets\workflow.PNG)
