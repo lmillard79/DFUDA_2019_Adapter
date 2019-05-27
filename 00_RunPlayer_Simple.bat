@@ -1,5 +1,6 @@
 ﻿
-echo on 
+echo off
+
 C:
 
 :: Initialise the Executables
@@ -27,4 +28,4 @@ CD %regionHome%
 
 %SystemRoot%\System32\rundll32.exe "%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll", ImageView_Fullscreen %regionHome%\GoldSim_TS.png
 
-pause
+exit
