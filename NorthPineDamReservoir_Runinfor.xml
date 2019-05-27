@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Run xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.wldelft.nl/fews/PI" xsi:schemaLocation="http://www.wldelft.nl/fews/PI http://fews.wldelft.nl/schemas/version1.0/pi-schemas/pi_run.xsd" version="1.5">
+    <timeZone>0.0</timeZone>
+    <startDateTime date="2011-01-08" time="23:00:00"/>
+    <endDateTime date="2011-01-23" time="23:00:00"/>
+    <time0 date="2011-01-13" time="23:00:00"/>
+    <lastObservationDateTime date="2011-01-23" time="23:00:00"/>
+    <workDir>C:\__FOE_EXERCISE__\FEWS_FLOOD_ENGINEER_EXERCISES\Modules\Reservoir\NorthPineDam</workDir>
+    <inputTimeSeriesFile>C:\__FOE_EXERCISE__\FEWS_FLOOD_ENGINEER_EXERCISES\Modules\Reservoir\NorthPineDam\import.xml</inputTimeSeriesFile>
+    <inputTimeSeriesFile>C:\__FOE_EXERCISE__\FEWS_FLOOD_ENGINEER_EXERCISES\Modules\Reservoir\NorthPineDam\importState.xml</inputTimeSeriesFile>
+    <outputDiagnosticFile>C:\__FOE_EXERCISE__\FEWS_FLOOD_ENGINEER_EXERCISES\Modules\Reservoir\NorthPineDam\diag.xml</outputDiagnosticFile>
+    <outputTimeSeriesFile>C:\__FOE_EXERCISE__\FEWS_FLOOD_ENGINEER_EXERCISES\Modules\Reservoir\NorthPineDam\export.xml</outputTimeSeriesFile>
+</Run>
