@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by  (SEQWATER) -->
+<generalAdapterRun xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/generalAdapterRun.xsd">
+	<general>
+		<piVersion>1.10</piVersion>
+		<rootDir>%REGION_HOME%/Modules/GOLDSIM/NPD</rootDir>
+		<workDir>%ROOT_DIR%</workDir>
+		<exportDir>%ROOT_DIR%/Input</exportDir>
+		<exportDataSetDir>%REGION_HOME%\Modules</exportDataSetDir>
+		<updateExportDataSetDirOnlyOnChange>true</updateExportDataSetDirOnlyOnChange>
+		<exportIdMap>IdExportGOLDSIM</exportIdMap>
+		<importDir>%ROOT_DIR%/Output</importDir>
+		<importIdMap>IdImportGOLDSIM</importIdMap>
+		<dumpFileDir>$GA_DUMPFILEDIR$</dumpFileDir>
+		<dumpDir>%ROOT_DIR%</dumpDir>
+		<diagnosticFile>%ROOT_DIR%\2_Model\log\NPD_GoldSim.log</diagnosticFile>
+		<missVal>-99999.0</missVal>
+		<convertDatum>true</convertDatum>
+		<timeZone>
+			<timeZoneOffset>+10:00</timeZoneOffset>
+		</timeZone>
+	</general>
+	<activities>
+		<!--clean up old results and temp files (further modification required)-->
+		<startUpActivities>
+			<purgeActivity>
+				<filter>%ROOT_DIR%\1_Input\*.*</filter>
+			</purgeActivity>
+			<purgeActivity>
+				<filter>%ROOT_DIR%\2_Model\log\*.*</filter>
+			</purgeActivity>
+			<purgeActivity>
+				<filter>%ROOT_DIR%\3_Output\*.*</filter>
+			</purgeActivity>
+		</startUpActivities>
+		<!-- Export activities -->
+		<exportActivities>
+			<!-- Export Timeseries-->
+			<exportTimeSeriesActivity>
+				<description>Export updating time series</description>
+				<exportFile>import.xml</exportFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<description>Wivenhoe Dam release</description>
+						<moduleInstanceId>Process_Timeseries_WivenhoeSomerset_Reservoir</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>Reservoir.outflow.forecast</parameterId>
+						<locationId>L_540177</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep unit="minute" multiplier="15"/>
+						<relativeViewPeriod unit="day" start="-1" end="2" startOverrulable="true" endOverrulable="true"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+					<timeSeriesSet>
+						<description>Downstream Total inflows from URBS Lower</description>
+						<moduleInstanceSetId>URBS_Forecast_Brisbane</moduleInstanceSetId>
+						<valueType>scalar</valueType>
+						<parameterId>Q.simulated.forecast</parameterId>
+						<locationId>L_540504</locationId>
+						<locationId>L_540505</locationId>
+						<locationId>L_540062</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep unit="minute" multiplier="15"/>
+						<relativeViewPeriod unit="day" start="-1" end="2" startOverrulable="true" endOverrulable="true"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+					<timeSeriesSet>
+						<description>Lake Manchester Dam release</description>
+						<moduleInstanceSetId>URBS_Forecast_Brisbane</moduleInstanceSetId>
+						<valueType>scalar</valueType>
+						<parameterId>Reservoir.outflow.forecast</parameterId>
+						<locationId>L_540028</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep unit="minute" multiplier="15"/>
+						<relativeViewPeriod unit="day" start="-1" end="2" startOverrulable="true" endOverrulable="true"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+					<timeSeriesSet>
+						<description>Gold Ck Dam and Enoggera Dam release</description>
+						<moduleInstanceSetId>URBS_Forecast_BrisbaneCK</moduleInstanceSetId>
+						<valueType>scalar</valueType>
+						<parameterId>Reservoir.outflow.forecast</parameterId>
+						<locationId>L_540107</locationId>
+						<locationId>L_540119</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep unit="minute" multiplier="15"/>
+						<relativeViewPeriod unit="day" start="-1" end="2" startOverrulable="true" endOverrulable="true"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+					<timeSeriesSet>
+						<description>Tide</description>
+						<moduleInstanceId>ImportMeasured</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>H.obs</parameterId>
+						<locationId>L_540495</locationId>
+						<timeSeriesType>external historical</timeSeriesType>
+						<timeStep unit="minute" multiplier="15"/>
+						<relativeViewPeriod unit="day" start="-1" end="2" startOverrulable="true" endOverrulable="true"/>
+						<readWriteMode>add originals</readWriteMode>
+						<ensembleId>main</ensembleId>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</exportTimeSeriesActivity>
+			<exportTimeSeriesActivity>
+				<description>Export updating time series</description>
+				<exportFile>importState.xml</exportFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceSetId>URBS_Forecast_Brisbane</moduleInstanceSetId>
+						<valueType>scalar</valueType>
+						<parameterId>Q.simulated.forecast</parameterId>
+						<locationId>L_540156</locationId>
+						<locationId>L_540149</locationId>
+						<locationId>L_Br_BVRT</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep unit="minute" multiplier="15"/>
+						<relativeViewPeriod unit="day" start="-1" end="1" startOverrulable="true" endOverrulable="true"/>
+						<readWriteMode>read only</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</exportTimeSeriesActivity>
+			<exportTimeSeriesActivity>
+				<description>Export updating time series</description>
+				<exportFile>NorthPineDamReservoir_Runinfor</exportFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceSetId>URBS_Forecast_Brisbane</moduleInstanceSetId>
+						<valueType>scalar</valueType>
+						<parameterId>Q.simulated.forecast</parameterId>
+						<locationId>L_540156</locationId>
+						<locationId>L_540149</locationId>
+						<locationId>L_Br_BVRT</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep unit="minute" multiplier="15"/>
+						<relativeViewPeriod unit="day" start="-1" end="1" startOverrulable="true" endOverrulable="true"/>
+						<readWriteMode>read only</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</exportTimeSeriesActivity>
+			<exportDataSetActivity>
+				<moduleInstanceId>NPD_GOLDSIM_Forecast</moduleInstanceId>
+			</exportDataSetActivity>
+		</exportActivities>
+		<!-- Execute activities (further modification required)-->
+		<executeActivities>
+			<!--Phase 1 - Run PreAdapter:   PI-XML to native format-->
+			<executeActivity>
+				<command>
+					<executable>%ROOT_DIR%/_Run_01_Pre_Adapter.py.bat</executable>
+				</command>
+				<logFile>
+					<file>%ROOT_DIR%/2_Model/Log/pre.log</file>
+					<errorLinePattern>*</errorLinePattern>
+				</logFile>
+				<!-- timeout in milliseconds: -->
+				<timeOut>2000</timeOut>
+			</executeActivity>
+			<!--Phase 2 - Run GoldSim Player: Module Run -->
+			<executeActivity>
+				<command>
+					<executable>%ROOT_DIR%/_Run_02_GoldSimPlayer.bat</executable>
+				</command>
+				<logFile>
+					<file>%ROOT_DIR%/2_Model/Log/run.log</file>
+					<errorLinePattern>*</errorLinePattern>
+				</logFile>
+				<!-- timeout in milliseconds: 45min x 60sec -->
+				<timeOut>200000</timeOut>
+			</executeActivity>
+			<!--Phase 3 - Run PostAdapter: Native format to PI-XML-->
+			<executeActivity>
+				<command>
+					<executable>%ROOT_DIR%/_Run_03_Post_Adapter.py.bat</executable>
+				</command>
+				<logFile>
+					<file>%ROOT_DIR%/2_Model/Log/post.log</file>
+					<errorLinePattern>*</errorLinePattern>
+				</logFile>
+				<!-- timeout in milliseconds: -->
+				<timeOut>2000</timeOut>
+			</executeActivity>
+		</executeActivities>
+		<importActivities>
+			<!--Import results-->
+			<importTimeSeriesActivity>
+				<importFile>%ROOT_DIR%\3_Output\Export_fromGoldSim</importFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<description>Routed Flows through GoldSim Model</description>
+						<moduleInstanceId>NPD_GOLDSIM_Forecast</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>Q.simulated.forecast</parameterId>
+						<locationSetId>Goldsim.NPD.output</locationSetId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep unit="minute" multiplier="15"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</importTimeSeriesActivity>
+		</importActivities>
+	</activities>
+</generalAdapterRun>
