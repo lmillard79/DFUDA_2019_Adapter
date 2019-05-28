@@ -18,7 +18,7 @@ set regionHome=C:\Users\lmillard\GitRepos\DFUDA_2019_Adapter
 
 :: Runtime - Go Do some GoldSim modelling 
 CD "C:\Program Files (x86)\GTG\GoldSim 12.1"
-%RUN% -r -x %regionHome%\2_Model\NPD_Routing_v8_simplified.gsp
+%RUN% -r -h -x %regionHome%\2_Model\NPD_Routing_v8_simplified.gsp
 
 :: Probably need to do this
 CD %regionHome%
