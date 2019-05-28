@@ -21,7 +21,6 @@
 		</timeZone>
 	</general>
 	<activities>
-		<!--clean up old results and temp files (further modification required)-->
 		<startUpActivities>
 			<purgeActivity>
 				<filter>%ROOT_DIR%\1_Input\*.*</filter>
@@ -33,107 +32,57 @@
 				<filter>%ROOT_DIR%\3_Output\*.*</filter>
 			</purgeActivity>
 		</startUpActivities>
-		<!-- Export activities -->
 		<exportActivities>
 			<!-- Export Timeseries-->
 			<exportTimeSeriesActivity>
-				<description>Export updating time series</description>
+				<description>Export data</description>
 				<exportFile>import.xml</exportFile>
 				<timeSeriesSets>
 					<timeSeriesSet>
-						<description>Wivenhoe Dam release</description>
-						<moduleInstanceId>Process_Timeseries_WivenhoeSomerset_Reservoir</moduleInstanceId>
+						<moduleInstanceId>Prepare_Timeseries_NorthPine_Reservoir</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>Reservoir.inflow.forecast</parameterId>
+						<locationId>L_540202</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep unit="minute" multiplier="15"/>
+						<relativeViewPeriod unit="day" start="-1" end="10" startOverrulable="true" endOverrulable="true"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+					<timeSeriesSet>
+						<moduleInstanceId>Prepare_Timeseries_NorthPine_Reservoir</moduleInstanceId>
 						<valueType>scalar</valueType>
 						<parameterId>Reservoir.outflow.forecast</parameterId>
-						<locationId>L_540177</locationId>
+						<locationId>NPD_Regulators</locationId>
 						<timeSeriesType>simulated forecasting</timeSeriesType>
 						<timeStep unit="minute" multiplier="15"/>
-						<relativeViewPeriod unit="day" start="-1" end="2" startOverrulable="true" endOverrulable="true"/>
+						<relativeViewPeriod unit="day" start="-1" end="10" startOverrulable="true" endOverrulable="true"/>
 						<readWriteMode>add originals</readWriteMode>
 					</timeSeriesSet>
 					<timeSeriesSet>
-						<description>Downstream Total inflows from URBS Lower</description>
-						<moduleInstanceSetId>URBS_Forecast_Brisbane</moduleInstanceSetId>
+						<moduleInstanceId>Prepare_Timeseries_NorthPine_Reservoir</moduleInstanceId>
 						<valueType>scalar</valueType>
-						<parameterId>Q.simulated.forecast</parameterId>
-						<locationId>L_540504</locationId>
-						<locationId>L_540505</locationId>
-						<locationId>L_540062</locationId>
+						<parameterId>Gate.setting.forecast</parameterId>
+						<locationSetId>NPD_Gates</locationSetId>
 						<timeSeriesType>simulated forecasting</timeSeriesType>
 						<timeStep unit="minute" multiplier="15"/>
-						<relativeViewPeriod unit="day" start="-1" end="2" startOverrulable="true" endOverrulable="true"/>
+						<relativeViewPeriod unit="day" start="-1" end="10" startOverrulable="true" endOverrulable="true"/>
 						<readWriteMode>add originals</readWriteMode>
-					</timeSeriesSet>
-					<timeSeriesSet>
-						<description>Lake Manchester Dam release</description>
-						<moduleInstanceSetId>URBS_Forecast_Brisbane</moduleInstanceSetId>
-						<valueType>scalar</valueType>
-						<parameterId>Reservoir.outflow.forecast</parameterId>
-						<locationId>L_540028</locationId>
-						<timeSeriesType>simulated forecasting</timeSeriesType>
-						<timeStep unit="minute" multiplier="15"/>
-						<relativeViewPeriod unit="day" start="-1" end="2" startOverrulable="true" endOverrulable="true"/>
-						<readWriteMode>add originals</readWriteMode>
-					</timeSeriesSet>
-					<timeSeriesSet>
-						<description>Gold Ck Dam and Enoggera Dam release</description>
-						<moduleInstanceSetId>URBS_Forecast_BrisbaneCK</moduleInstanceSetId>
-						<valueType>scalar</valueType>
-						<parameterId>Reservoir.outflow.forecast</parameterId>
-						<locationId>L_540107</locationId>
-						<locationId>L_540119</locationId>
-						<timeSeriesType>simulated forecasting</timeSeriesType>
-						<timeStep unit="minute" multiplier="15"/>
-						<relativeViewPeriod unit="day" start="-1" end="2" startOverrulable="true" endOverrulable="true"/>
-						<readWriteMode>add originals</readWriteMode>
-					</timeSeriesSet>
-					<timeSeriesSet>
-						<description>Tide</description>
-						<moduleInstanceId>ImportMeasured</moduleInstanceId>
-						<valueType>scalar</valueType>
-						<parameterId>H.obs</parameterId>
-						<locationId>L_540495</locationId>
-						<timeSeriesType>external historical</timeSeriesType>
-						<timeStep unit="minute" multiplier="15"/>
-						<relativeViewPeriod unit="day" start="-1" end="2" startOverrulable="true" endOverrulable="true"/>
-						<readWriteMode>add originals</readWriteMode>
-						<ensembleId>main</ensembleId>
 					</timeSeriesSet>
 				</timeSeriesSets>
 			</exportTimeSeriesActivity>
 			<exportTimeSeriesActivity>
-				<description>Export updating time series</description>
+				<description>Export data</description>
 				<exportFile>importState.xml</exportFile>
 				<timeSeriesSets>
 					<timeSeriesSet>
-						<moduleInstanceSetId>URBS_Forecast_Brisbane</moduleInstanceSetId>
+						<moduleInstanceId>Prepare_Timeseries_NorthPine_Reservoir</moduleInstanceId>
 						<valueType>scalar</valueType>
-						<parameterId>Q.simulated.forecast</parameterId>
-						<locationId>L_540156</locationId>
-						<locationId>L_540149</locationId>
-						<locationId>L_Br_BVRT</locationId>
-						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<parameterId>H.obs</parameterId>
+						<locationId>L_540277</locationId>
+						<timeSeriesType>external historical</timeSeriesType>
 						<timeStep unit="minute" multiplier="15"/>
-						<relativeViewPeriod unit="day" start="-1" end="1" startOverrulable="true" endOverrulable="true"/>
-						<readWriteMode>read only</readWriteMode>
-					</timeSeriesSet>
-				</timeSeriesSets>
-			</exportTimeSeriesActivity>
-			<exportTimeSeriesActivity>
-				<description>Export updating time series</description>
-				<exportFile>NorthPineDamReservoir_Runinfor</exportFile>
-				<timeSeriesSets>
-					<timeSeriesSet>
-						<moduleInstanceSetId>URBS_Forecast_Brisbane</moduleInstanceSetId>
-						<valueType>scalar</valueType>
-						<parameterId>Q.simulated.forecast</parameterId>
-						<locationId>L_540156</locationId>
-						<locationId>L_540149</locationId>
-						<locationId>L_Br_BVRT</locationId>
-						<timeSeriesType>simulated forecasting</timeSeriesType>
-						<timeStep unit="minute" multiplier="15"/>
-						<relativeViewPeriod unit="day" start="-1" end="1" startOverrulable="true" endOverrulable="true"/>
-						<readWriteMode>read only</readWriteMode>
+						<relativeViewPeriod unit="day" start="-1" end="0" startOverrulable="true"/>
+						<readWriteMode>add originals</readWriteMode>
 					</timeSeriesSet>
 				</timeSeriesSets>
 			</exportTimeSeriesActivity>
@@ -186,11 +135,28 @@
 				<importFile>%ROOT_DIR%\3_Output\Export_fromGoldSim</importFile>
 				<timeSeriesSets>
 					<timeSeriesSet>
-						<description>Routed Flows through GoldSim Model</description>
-						<moduleInstanceId>NPD_GOLDSIM_Forecast</moduleInstanceId>
+						<moduleInstanceId>NorthPineDamReservoir_Forecast</moduleInstanceId>
 						<valueType>scalar</valueType>
-						<parameterId>Q.simulated.forecast</parameterId>
-						<locationSetId>Goldsim.NPD.output</locationSetId>
+						<parameterId>Reservoir.level.forecast</parameterId>
+						<locationId>L_540202</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep unit="minute" multiplier="15"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+					<timeSeriesSet>
+						<moduleInstanceId>NorthPineDamReservoir_Forecast</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>Reservoir.outflow.forecast</parameterId>
+						<locationSetId>NPD_Gates</locationSetId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep unit="minute" multiplier="15"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+					<timeSeriesSet>
+						<moduleInstanceId>NorthPineDamReservoir_Forecast</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>Reservoir.outflow.forecast</parameterId>
+						<locationId>NPD_Regulators</locationId>
 						<timeSeriesType>simulated forecasting</timeSeriesType>
 						<timeStep unit="minute" multiplier="15"/>
 						<readWriteMode>add originals</readWriteMode>
