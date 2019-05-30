@@ -22,7 +22,7 @@ def newest(path):
 # It is a good idea to put your variables up front
 fewsNamespace="http://www.wldelft.nl/fews/PI"
 
-regionHome = r'C:\Users\lmillard\GitRepos\DFUDA_2019_Adapter/'
+regionHome = r'C:\Users\Lindsay\Documents\GitHub\DFUDA_2019_Adapter/'
 
 ExportXML = '3_Output/Export_fromGoldSim.xml'
 

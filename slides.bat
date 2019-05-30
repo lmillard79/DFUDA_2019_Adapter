@@ -1,0 +1,1 @@
+jupyter nbconvert Worked_Example_FEWS-GoldSim-Adapter.ipynb --to slides --post serve
